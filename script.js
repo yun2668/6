@@ -22,7 +22,7 @@ if (menuBtn && mainNav) {
   });
 
 
-  // 點選選單後，自動收合
+  // 點擊選單連結後，自動收合
   mainNav.querySelectorAll("a").forEach(link => {
 
     link.addEventListener("click", () => {
@@ -41,7 +41,7 @@ if (menuBtn && mainNav) {
   });
 
 
-  // 手機版切回電腦版時，自動關閉選單
+  // 從手機版切回電腦版時，自動關閉選單
   window.addEventListener("resize", () => {
 
     if (window.innerWidth > 760) {
@@ -64,7 +64,7 @@ if (menuBtn && mainNav) {
 
 
 // ==========================================
-// 柴油車定檢月份快速查詢
+// 柴油車檢驗月份快速查詢
 // ==========================================
 
 const monthSelect = document.getElementById("monthSelect");
@@ -79,31 +79,32 @@ if (monthBtn && monthSelect && monthResult) {
     const month = Number(monthSelect.value);
 
 
-    // 沒有選月份
+    // 沒有選擇月份
     if (!month) {
 
-      monthResult.textContent = "請先選擇行照原發照月份";
+      monthResult.textContent =
+        "請先選擇行照原發照月份";
 
       return;
 
     }
 
 
-    // 計算前一個月
+    // 前一個月
     const previousMonth =
       month === 1
         ? 12
         : month - 1;
 
 
-    // 計算下一個月
+    // 下一個月
     const nextMonth =
       month === 12
         ? 1
         : month + 1;
 
 
-    // 顯示結果
+    // 顯示查詢結果
     monthResult.innerHTML =
 
       `原發照月份為 <strong>${month} 月</strong><br>` +
@@ -130,7 +131,6 @@ document.querySelectorAll(".faq-item").forEach(item => {
     item.querySelector(".faq-question");
 
 
-  // 找不到按鈕就跳過
   if (!button) return;
 
 
@@ -140,7 +140,7 @@ document.querySelectorAll(".faq-item").forEach(item => {
       item.classList.contains("active");
 
 
-    // 先把其他問題全部關閉
+    // 先把全部 FAQ 關閉
     document
       .querySelectorAll(".faq-item")
       .forEach(otherItem => {
@@ -150,7 +150,7 @@ document.querySelectorAll(".faq-item").forEach(item => {
       });
 
 
-    // 原本沒有開啟，就開啟目前這題
+    // 如果目前這題原本沒開，就打開
     if (!isOpen) {
 
       item.classList.add("active");
